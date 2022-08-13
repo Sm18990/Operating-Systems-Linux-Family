@@ -6,7 +6,7 @@
 #define PIPETEST_ERRORHANDLING_H
 
 #define MAX_MESSAGE_LENGTH 256
-
+#define nullptr            0
 void openPipeError();
 void closePipeError();
 void fileCreateError( const char * fileName );

@@ -3,4 +3,4 @@ project(PipeTest)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PipeTest main.cpp ErrorHandling.cpp ErrorHandling.h )
+add_executable(PipeTest main.c ErrorHandling.c ErrorHandling.h )

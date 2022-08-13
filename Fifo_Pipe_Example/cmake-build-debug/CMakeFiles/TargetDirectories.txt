@@ -1,3 +1,3 @@
-/home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/PipeTest/cmake-build-debug/CMakeFiles/PipeTest.dir
-/home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/PipeTest/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/PipeTest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/Fifo_Pipe_Example/cmake-build-debug/CMakeFiles/PipeTest.dir
+/home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/Fifo_Pipe_Example/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/Fifo_Pipe_Example/cmake-build-debug/CMakeFiles/rebuild_cache.dir
