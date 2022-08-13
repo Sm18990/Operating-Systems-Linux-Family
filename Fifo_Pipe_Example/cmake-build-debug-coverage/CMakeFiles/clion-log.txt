@@ -1,4 +1,0 @@
-/home/stefan/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.3345.126/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/stefan/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.3345.126/bin/ninja/linux/ninja -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -G Ninja -S /home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/Fifo_Pipe_Example -B /home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/Fifo_Pipe_Example/cmake-build-debug-coverage
--- Configuring done
--- Generating done
--- Build files have been written to: /home/stefan/Documents/GitHub/Operating-Systems-Linux-Family/Fifo_Pipe_Example/cmake-build-debug-coverage
