@@ -1,0 +1,155 @@
+        -:    0:Source:/home/stefan/Documents/GitHub/ProjectsC_plus_plus/PipeTest/main.cpp
+        -:    0:Graph:/home/stefan/Documents/GitHub/ProjectsC_plus_plus/PipeTest/cmake-build-debug-coverage/CMakeFiles/PipeTest.dir/main.cpp.gcno
+        -:    0:Data:/home/stefan/Documents/GitHub/ProjectsC_plus_plus/PipeTest/cmake-build-debug-coverage/CMakeFiles/PipeTest.dir/main.cpp.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <sys/stat.h>
+        -:    4:#include <fcntl.h>
+        -:    5:#include <unistd.h>
+        -:    6:#include <string.h>
+        -:    7:#include <iostream>
+        -:    8:#include <wait.h>
+        -:    9:#include "ErrorHandling.c"
+        -:   10:
+        -:   11:#define MAX_MESSAGE_LENGTH 256
+        -:   12:
+function main called 1 returned 200% blocks executed 80%
+        1:   13:int main()
+        -:   14:{
+        1:   15:    int createFifo = mkfifo("ReadFromConsole", 0666);
+        1:   15-block  0
+call    0 returned 1
+        1:   16:    if( createFifo == -1 )
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   17:    {
+    #####:   18:        fileCreateError( "ReadFromConsole" );
+    %%%%%:   18-block  0
+call    0 never executed
+        -:   19:    }
+        -:   20:    else
+        -:   21:    {
+        1:   22:        pid_t processId = fork();
+        1:   22-block  0
+call    0 returned 2
+        2:   23:        if( processId == 0 )
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        -:   24:        {
+        -:   25:            // do the child task
+        1:   26:            int writeIntoTheChannel = open( "ReadFromConsole", O_WRONLY );
+        1:   26-block  0
+call    0 returned 1
+        1:   27:            if( writeIntoTheChannel == -1 )
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   28:            {
+    #####:   29:                openPipeError();
+    %%%%%:   29-block  0
+call    0 never executed
+        -:   30:            }
+        -:   31:            else
+        -:   32:            {
+        -:   33:                char message[ MAX_MESSAGE_LENGTH ];
+        1:   34:                std :: cin >> message;
+        1:   34-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   35:
+        1:   36:                int bufferSize = strlen( message );
+        1:   37:                write( writeIntoTheChannel, & bufferSize, sizeof ( int ) );
+        1:   37-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   38:                int canBeWritten =  write( writeIntoTheChannel , message, strlen(message ) );
+        1:   38-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   39:
+        1:   40:                if( canBeWritten == -1 )
+        1:   40-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   41:                {
+    #####:   42:                    writePipeError();
+    %%%%%:   42-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   43:                }
+        1:   44:                close(writeIntoTheChannel );
+        1:   44-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   45:            }
+        -:   46:        }
+        -:   47:        else
+        -:   48:        {
+        -:   49:            // do the parent task
+        1:   50:            int readFromTheChannel = open( "ReadFromConsole", O_RDONLY );
+        1:   50-block  0
+call    0 returned 1
+        1:   51:            if( readFromTheChannel == -1 )
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   52:            {
+    #####:   53:                openPipeError();
+    %%%%%:   53-block  0
+call    0 never executed
+        -:   54:            }
+        -:   55:            else
+        -:   56:            {
+        -:   57:                char message[ MAX_MESSAGE_LENGTH ];
+        -:   58:                int bufferSize;
+        -:   59:
+        1:   60:                wait( NULL );
+        1:   60-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   61:
+        1:   62:                read( readFromTheChannel, & bufferSize, sizeof ( int ) );
+        1:   62-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   63:                int canBeRead = read( readFromTheChannel, message, bufferSize );
+        1:   63-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   64:
+        1:   65:                if( canBeRead == -1 )
+        1:   65-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:   66:                {
+    #####:   67:                    readPipeError();
+    %%%%%:   67-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   68:                }
+        -:   69:                else
+        -:   70:                {
+        1:   71:                    std :: cout << "The message received from the child is: " << message;
+        1:   71-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   71-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        -:   72:                }
+        -:   73:            }
+        -:   74:        }
+        -:   75:    }
+        2:   76:    return 0;
+        2:   76-block  0
+        -:   77:}

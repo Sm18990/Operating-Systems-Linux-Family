@@ -1,0 +1,8 @@
+# ninja log v5
+0	196	1660402513381008795	CMakeFiles/PipeTest.dir/main.cpp.o	7471e27c3a4ca6dc
+196	247	1660402513433008373	PipeTest	d603e07cf5c6adca
+0	25	1660402513213010156	CMakeFiles/PipeTest.dir/ErrorHandling.cpp.o	8844f617b742cd5e
+0	3	0	clean	3b792c6b51a67277
+1	106	1660404378167820070	CMakeFiles/PipeTest.dir/ErrorHandling.cpp.o	83a3192ac8aa4fd4
+2	589	1660404378651819570	CMakeFiles/PipeTest.dir/main.cpp.o	6721949ae5208e21
+589	747	1660404378807819409	PipeTest	d603e07cf5c6adca
